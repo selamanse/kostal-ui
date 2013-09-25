@@ -16,7 +16,10 @@ Since I experience power-drops, when only one solar module is partly shaded I ne
 
 ## Usage
 
-Copy everything to your node server and do 'npm install' to include all the dependencies. Add jquery and highcharts libs under public/javascripts/external 
+Copy everything to your node server and do 'npm install' to include all the dependencies.
+Add jquery and highcharts libs under public/javascripts/external and start it
+
+    npm kostal-ui.js
 
 Off you go! Stop it with Ctrl-C :)
 
