@@ -1,0 +1,37 @@
+!!! 5
+html
+  head
+    title= title
+    meta(charset="utf-8")
+
+    meta(name="title",content="#{title}")
+    meta(name="description", content="#{title}")
+    meta(name="keywords", content="#{title}")
+    meta(name="language", content="en")
+    meta(name="robots", content="index, follow")
+
+    link(rel="icon",href="/favicon.ico",type="image/x-icon")
+    link(rel='stylesheet',href='/stylesheets/style.css')
+
+    script(src='/javascripts/external/jquery-2.0.3.min.js')
+    script(src='/javascripts/external/highcharts/highcharts.js')
+    script(src='/javascripts/kostal.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/socket.js')
+
+  body
+    section
+      h1= title
+      div#login
+        if loggedIn
+          button(jq='start') Start
+          button(jq='stop') Stop
+        else
+          a(href="/login") Login
+      div#monitor
+      div#highchart
+
+      ul#list
+        each log in logs
+          li
+            a(href="",jq="#{log}")=log

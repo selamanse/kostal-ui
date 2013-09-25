@@ -1,0 +1,25 @@
+{
+  "name": "kostal-ui",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "jade": "latest",
+    "socket.io": "latest",
+    "kostal": "latest"
+  },
+  "homepage": "https://github.com/zevero/kostal-ui.git",
+  "keywords": [
+    "kostal"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zevero/kostal-ui.git"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
