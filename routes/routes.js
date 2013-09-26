@@ -3,7 +3,7 @@
  */
 
 exports.index = function(req, res){
-  require('../model/logs_list.js')(function(logs){
+  require('../model/logs.js').list(function(logs){
     res.render('index', { title: 'Kostal-UI', loggedIn: req.session.loggedIn, logs: logs, logdir:'logs/' });
   });
 };

@@ -10,7 +10,8 @@ var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
-  , kostal = require('kostal');
+  , kostal = require('kostal')
+  , model_logs = require('./model/logs.js');
 
 // all environments
 app.set('port', process.env.PORT || 3001);
@@ -52,15 +53,14 @@ server.listen(app.get('port'), function(){
 });
 
 io.sockets.on('connection', function (socket) {
-  //socket.emit('data', { hello: 'world' });
   socket.on('status', function (data) { //is not secure!!! there just wont be a button to click on
-    console.log(data);
     switch(data) {
       case 'start':
         kostal.stop(); //lets start clean and fresh
         kostal.start({
 	  url: 'http://pvserver:ss@95.143.227.183:8081/',
 	  interval: 10,
+          dir: model_logs.dir + '/',
           onData: function(live){
             io.sockets.emit('live', live);
           }
@@ -73,7 +73,7 @@ io.sockets.on('connection', function (socket) {
       case 'stop':
         kostal.stop();
       default:
-        require('./model/logs_view.js')(data,function(lines){
+        model_logs.view(data,function(lines){
           socket.emit('data',{
             'filename': data,
             'lines': lines
