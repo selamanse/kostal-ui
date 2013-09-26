@@ -2,7 +2,6 @@ $(function(){
 
 var socket = io.connect();
 socket.on('data', function (data) {
-  console.log('data',data);
   $('[jq]').removeAttr("disabled");
   if (data.filename){
      $('#monitor').html(data.filename);
@@ -15,19 +14,17 @@ socket.on('data', function (data) {
 
 
 socket.on('live', function (data) {
-  console.log('live',data);
   if (data.filename ===  $('#monitor').html() && data.line){
     Kostal.update(data.line);
   }
+  $('[jq="'+data.filename+'"]').addClass('live');
 });
 
 
 $('[jq]').click(function(e){
   e.preventDefault();
   e.stopPropagation();
-  jq = this.getAttribute('jq');
-  console.log(jq);
-  
-  socket.emit('status', jq);
+  jq = this.getAttribute('jq');  
+  if (jq) socket.emit('status', jq);
 });
 });
