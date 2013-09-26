@@ -32,7 +32,7 @@ var Kostal = {
       t: t.getTime(),
       p: parseInt(items[4]),
       u1: parseInt(items[5]),
-      eff: 100 * parseInt(items[4]) / (parseFloat(items[6].replace(',', '.')) * parseInt(items[5]))
+      eff: +(100 * parseInt(items[4]) / (parseFloat(items[6].replace(',', '.')) * parseInt(items[5]))).toFixed(2)
     };
   },
   update: function(line){
@@ -72,7 +72,7 @@ Kostal.draw = function draw(lines){
     labels: {
       format: '{value} W',
       style: {
-        color: '#89A54E'
+        color: '#ff0000'
       }
     },
     min: 0,
@@ -86,7 +86,7 @@ Kostal.draw = function draw(lines){
     labels: {
       format: '{value} %',
       style: {
-        color: '#89A54E'
+        color: '#999999'
       }
     },
     //min: 0,
@@ -94,7 +94,7 @@ Kostal.draw = function draw(lines){
     title: {
       text: 'Efficiency',
       style: {
-        color: '#ff00ff'
+        color: '999999'
       }
     },
     opposite: true

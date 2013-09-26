@@ -57,12 +57,12 @@ io.sockets.on('connection', function (socket) {
     console.log(data);
     switch(data) {
       case 'start':
+        kostal.stop(); //lets start clean and fresh
         kostal.start({
 	  url: 'http://pvserver:ss@95.143.227.183:8081/',
 	  interval: 10,
           onData: function(live){
-            if (!live.line.split(';')[5]) kostal.stop(); //Stop polling at night, when there is no P anymore
-            else io.sockets.emit('live', live);
+            io.sockets.emit('live', live);
           }
         });
         socket.emit('data',{
