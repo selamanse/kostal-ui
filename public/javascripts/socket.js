@@ -2,7 +2,6 @@ $(function(){
 
 var socket = io.connect();
 socket.on('data', function (data) {
-  $('[jq]').removeAttr("disabled");
   if (data.filename){
      $('#monitor').html(data.filename);
      Kostal.draw(data.lines);
@@ -24,7 +23,7 @@ socket.on('live', function (data) {
 $('[jq]').click(function(e){
   e.preventDefault();
   e.stopPropagation();
-  jq = this.getAttribute('jq');  
+  jq = this.getAttribute('jq');
   if (jq) socket.emit('status', jq);
 });
 });

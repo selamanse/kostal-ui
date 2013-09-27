@@ -1,14 +1,3 @@
-$(function () { //data in global variable json
-  if (typeof json !== 'undefined') {
-    Kostal.draw(json);
-  }
-});
-
-  function getPoint(){
-    
-   return [(new Date()).getTime(), Math.random() * 300];
-  }
-  
 var Kostal = {
   Data: {},
   Chart: false,
