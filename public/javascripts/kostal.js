@@ -43,8 +43,8 @@ Kostal.draw = function draw(lines){
   chart: {
       type: 'spline',
       zoomType: 'x',
-      height: '700'//,
-      //animation: false //until addPoint is working
+      height: '700',
+      animation: false //performance
   },
   colors: [
     '#0000ff', //blue for voltage
@@ -105,7 +105,14 @@ Kostal.draw = function draw(lines){
   tooltip: {
     shared: true
   },
-
+  plotOptions:{
+    spline: {
+      marker: {
+         enabled: false  //performance
+       },
+       shadow: false     //performance
+    }
+  },
   series: [{
       name: 'Voltage',
       data: Kostal.Data.Voltage,
