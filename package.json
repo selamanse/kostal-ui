@@ -1,7 +1,6 @@
 {
   "name": "kostal-ui",
-  "version": "0.0.2",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "start": "nodemon kostal-ui.js"
   },
