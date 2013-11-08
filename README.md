@@ -25,6 +25,7 @@ Do 'npm install kostal-ui' then add jquery and highcharts libs under public/java
 
 
 You can start and stop data-logging and view old logs. Hey, it uses sockets, so you can view data-logging life and even simultaneously on different devices ;)
+It stops automatically, when there is no sunshine any more.
 
 The csv-file are in your 'logs' directory, which can also be used in Libreoffice. Just convert TimeExcel colum to "date with time" and use "Insert Diagramm" to view your data.
 
