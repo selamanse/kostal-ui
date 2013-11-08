@@ -4,7 +4,7 @@ Extract Data from your Kostal Piko
 
 ## Features
 
-Logs your Data and acts as a server with live Data
+Logs your Data and acts as a server with live data!
 
 
 ## Where is it tested?
@@ -19,14 +19,14 @@ Since I experience power-drops, when only one solar module is partly shaded I wa
 
 ## Usage
 
-Copy everything to your node server and do 'npm install' to include all the dependencies.
-Add jquery and highcharts libs under public/javascripts/external and start it
+Do 'npm install kostal-ui' then add jquery and highcharts libs under public/javascripts/external and edit the url on the first line of kostal-ui.js
 
     npm kostal-ui.js
 
 
-The csv-file waits to be imported in your 'logs' directory.
-It can also be used in Libreoffice. Just convert TimeExcel colum to "date with time" and use "Insert Diagramm" to view your data.
+You can start and stop data-logging and view old logs. Hey, it uses sockets, so you can view data-logging life and even simultaneously on different devices ;)
+
+The csv-file are in your 'logs' directory, which can also be used in Libreoffice. Just convert TimeExcel colum to "date with time" and use "Insert Diagramm" to view your data.
 
 ## Dependencies
 

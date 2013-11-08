@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var express = require('express')
+var url='http://pvserver:pass@111.222.333.444:8080/'
+  , express = require('express')
   , routes = require('./routes/routes.js')
   , http = require('http')
   , path = require('path')
@@ -12,7 +13,7 @@ var express = require('express')
   , io = require('socket.io').listen(server)
   , kostal = require('kostal')
   , model_logs = require('./model/logs.js');
-
+  
 // all environments
 app.set('port', process.env.PORT || 3001);
 app.set('views',path.join( __dirname,'views'));
@@ -58,7 +59,7 @@ io.sockets.on('connection', function (socket) {
       case 'start':
         kostal.stop(); //lets start clean and fresh
         kostal.start({
-	  url: 'http://pvserver:ss@95.143.227.183:8081/',
+	  url: url,
 	  interval: 10,
           dir: model_logs.dir + '/',
           onData: function(live){
